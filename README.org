@@ -1,0 +1,18 @@
+#+title: cobweb-curriculum-package
+#+author: Tobias Hauser
+
+This is a template repository to create a new package for [[https://github.com/tobiashauser/cobweb-curriculum][cobweb-curriculum]].
+
+* Usage
+
+Create a new repository from this template by running:
+
+#+begin_src bash
+  gh repo create --template cobweb-curriculum-package PACKAGE
+#+end_src
+
+Navigate into your new repository and initialize it with:
+
+#+begin_src bash
+  nix run .#repo-init
+#+end_src
