@@ -9,7 +9,7 @@
   outputs =
     inputs@{ parts, ... }:
     let
-      # CHANGE TO THE NAME OF YOUR PACKAGE
+      # CHANGE TO THE NAME OF YOUR PACKAGE.
       name = "cobweb-curriculum-template";
     in
     parts.lib.mkFlake { inherit inputs; } (
@@ -29,13 +29,17 @@
           perSystem =
             { pkgs, ... }:
             {
+              imports = [
+                ./packages
+              ];
+              
               config = {
                 apps.repo-init = {
                   type = "app";
                   program = "${pkgs.callPackage ./apps/repo-init.nix { inherit name; }}";
                 };
                 devShells.default = pkgs.callPackage ./devShells/default.nix { };
-                packages.git-lfs-webdav = pkgs.callPackage ./packages/git-lfs-webdav.nix { };
+                # packages.git-lfs-webdav = pkgs.callPackage ./packages/git-lfs-webdav.nix { };
               };
             };
         };
