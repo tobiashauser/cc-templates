@@ -13,11 +13,15 @@
       name = "cobweb-curriculum-template";
     in
     parts.lib.mkFlake { inherit inputs; } (
-      { ... }:
+      { lib, ... }:
       {
         options.${name} = { };
 
         config = {
+          flake.lib = {
+            each = import ./lib/each.nix { inherit lib; };
+          };
+          
           systems = [
             "aarch64-darwin"
           ];
