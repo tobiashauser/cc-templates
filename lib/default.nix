@@ -1,8 +1,4 @@
 {
-  ...
-}:
-
-{
   imports = [
     ./each.nix
   ];
