@@ -30,6 +30,7 @@
             { pkgs, ... }:
             {
               imports = [
+                ./devShells
                 ./packages
               ];
               
@@ -38,7 +39,7 @@
                   type = "app";
                   program = "${pkgs.callPackage ./apps/repo-init.nix { inherit name; }}";
                 };
-                devShells.default = pkgs.callPackage ./devShells/default.nix { };
+                # devShells.default = pkgs.callPackage ./devShells/default.nix { };
                 # packages.git-lfs-webdav = pkgs.callPackage ./packages/git-lfs-webdav.nix { };
               };
             };
