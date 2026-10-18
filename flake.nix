@@ -9,36 +9,32 @@
   outputs =
     inputs@{ parts, ... }:
     let
-      # CHANGE TO THE NAME OF YOUR PACKAGE
+      # CHANGE TO THE NAME OF YOUR PACKAGE.
       name = "cobweb-curriculum-template";
     in
-    parts.lib.mkFlake { inherit inputs; } (
-      { lib, ... }:
-      {
-        options.${name} = { };
+    parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        ./lib
+      ];
 
-        config = {
-          flake.lib = {
-            each = import ./lib/each.nix { inherit lib; };
+      options.${name} = { };
+
+      config = {
+        systems = [
+          "aarch64-darwin"
+        ];
+
+        perSystem = {
+          _module.args = {
+            inherit name;
           };
-          
-          systems = [
-            "aarch64-darwin"
-          ];
 
-          perSystem =
-            { pkgs, ... }:
-            {
-              config = {
-                apps.repo-init = {
-                  type = "app";
-                  program = "${pkgs.callPackage ./apps/repo-init.nix { inherit name; }}";
-                };
-                devShells.default = pkgs.callPackage ./devShells/default.nix { };
-                packages.git-lfs-webdav = pkgs.callPackage ./packages/git-lfs-webdav.nix { };
-              };
-            };
+          imports = [
+            ./apps
+            ./devShells
+            ./packages
+          ];
         };
-      }
-    );
+      };
+    };
 }

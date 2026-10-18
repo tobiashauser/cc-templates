@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./each.nix
+  ];
+}
