@@ -12,10 +12,13 @@ let
   matching =
     pattern: name: _type:
     !(isNull (match pattern name));
-  
+
   withPrefix =
     dir: name: _type:
     dir + "/${name}";
-  
+
 in
-dir: pattern: mapAttrsToList (withPrefix dir) (filterAttrs (matching pattern) (readDir dir))
+{
+  flake.lib.each =
+    dir: pattern: mapAttrsToList (withPrefix dir) (filterAttrs (matching pattern) (readDir dir));
+}
