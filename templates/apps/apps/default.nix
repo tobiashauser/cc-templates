@@ -8,7 +8,7 @@ pkgs,
 {
   imports = [
     # Add modules.
-    ./hello
+    ./hello.nix
   ];
 
   apps = {
