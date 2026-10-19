@@ -1,0 +1,21 @@
+#+title: cc-templates
+#+author: Tobias Hauser
+
+This flakes defines multiple templates for new cobweb-curriculum packages.
+
+** Usage
+
+Show all defined templates:
+
+#+begin_src bash
+  nix flake show "git+ssh://git@github.com/tobiashauser/cc-templates"
+#+end_src
+
+Install a template in the current directory with:
+
+#+begin_src bash
+  nix flake init -t "git+ssh://git@github.com/tobiashauser/cc-template"#NAME
+#+end_src
+
+Consider updating the depencies by running ~nix flake update~ after you have created a new
+package.
