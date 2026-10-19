@@ -8,13 +8,13 @@ This flakes defines multiple templates for new cobweb-curriculum packages.
 Show all defined templates:
 
 #+begin_src bash
-  nix flake show "git+ssh://git@github.com/tobiashauser/cc-templates"
+  nix flake show "github:tobiashauser/cc-templates"
 #+end_src
 
 Install a template in the current directory with:
 
 #+begin_src bash
-  nix flake init -t "git+ssh://git@github.com/tobiashauser/cc-template"#NAME
+  nix flake init -t "github:tobiashauser/cc-templates"#NAME
 #+end_src
 
 Consider updating the depencies by running ~nix flake update~ after you have created a new
