@@ -30,6 +30,11 @@
     config = {
       identifier = null; # TODO configure with a unique identifier.
 
+      # Add the supported systems.
+      systems = [
+        "aarch64-darwin"
+      ];
+
       perSystem = {
         imports = [
           # Modules that provide outputs parametrized over system.
