@@ -286,6 +286,5 @@ TSWLatexianTemp*
 ### direnv ###
 
 .direnv
-.envrc
 
 ### Custom rules ###
