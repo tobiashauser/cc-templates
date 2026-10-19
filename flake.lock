@@ -52,33 +52,7 @@
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
-        "parts": "parts",
-        "support": "support"
-      }
-    },
-    "support": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "parts": [
-          "parts"
-        ]
-      },
-      "locked": {
-        "lastModified": 1792435565,
-        "narHash": "sha256-1Yk27fzalfYkM35SqWl1NTD4gJELCGQjOrZmPsLlO0o=",
-        "ref": "refs/heads/develop",
-        "rev": "9f60551bce0a1fc3c719e8a1cc262e9276629a85",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/tobiashauser/cc-support.git"
-      },
-      "original": {
-        "rev": "9f60551bce0a1fc3c719e8a1cc262e9276629a85",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/tobiashauser/cc-support.git"
+        "parts": "parts"
       }
     }
   },

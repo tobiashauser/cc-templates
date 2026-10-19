@@ -17,12 +17,5 @@ Install a template in the current directory with:
   nix flake init -t "git+ssh://git@github.com/tobiashauser/cc-template"#NAME
 #+end_src
 
-** Templates
-
-This flake defines templates for various types of packages. Although naturally not every
-usecase can (and should) be covered. Most of the templates are designed in such a way that you
-can combine multiple.
-
-*** lib
-
-Defines a new cobweb-curriculum package that exports library functions.
+Consider updating the depencies by running ~nix flake update~ after you have created a new
+package.

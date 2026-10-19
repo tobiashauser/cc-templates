@@ -1,0 +1,19 @@
+#+title: My template
+#+author: Tobias Hauser
+
+This the default template.
+
+** Usage
+
+Show all defined templates:
+
+#+begin_src bash
+  nix flake show FLAKE
+#+end_src
+
+Install a template in the current directory with:
+
+#+begin_src bash
+  nix flake init -t FLAKE # use the default template
+  nix flake init -t FLAKE#TEMPLATE
+#+end_src
