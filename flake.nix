@@ -17,7 +17,7 @@
   outputs =
     inputs@{ parts, ... }:
     let
-      name = "cc-template";
+      name = "cc-templates";
     in
     parts.lib.mkFlake { inherit inputs; } {
       imports = [
