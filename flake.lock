@@ -66,16 +66,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1792422985,
-        "narHash": "sha256-2RqgLDioqX3L+QI4boukgiRpWsFcFXc5fPyVPAyCC4A=",
+        "lastModified": 1792435565,
+        "narHash": "sha256-1Yk27fzalfYkM35SqWl1NTD4gJELCGQjOrZmPsLlO0o=",
         "ref": "refs/heads/develop",
-        "rev": "398d58c4701b232d0da3e6f22416ae7407849475",
+        "rev": "9f60551bce0a1fc3c719e8a1cc262e9276629a85",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/tobiashauser/cc-support.git"
       },
       "original": {
-        "rev": "398d58c4701b232d0da3e6f22416ae7407849475",
+        "rev": "9f60551bce0a1fc3c719e8a1cc262e9276629a85",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/tobiashauser/cc-support.git"

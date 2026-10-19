@@ -5,8 +5,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     parts.url = "github:hercules-ci/flake-parts";
 
+    # tag: 1.1.0
     support = {
-      url = "git+ssh://git@github.com/tobiashauser/cc-support.git?shallow=1&rev=398d58c4701b232d0da3e6f22416ae7407849475"; # 1.0.0
+      url = "git+ssh://git@github.com/tobiashauser/cc-support.git?shallow=1&rev=9f60551bce0a1fc3c719e8a1cc262e9276629a85";
       inputs = {
         parts.follows = "parts";
         nixpkgs.follows = "nixpkgs";
@@ -16,31 +17,12 @@
 
   outputs =
     inputs@{ parts, ... }:
-    let
-      name = "cc-templates";
-    in
     parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        ./lib
         inputs.support.flakeModules.default
       ];
 
-      options.${name} = { };
-
       config = {
-        systems = [
-          "aarch64-darwin"
-        ];
-
-        perSystem = {
-          _module.args = {
-            inherit name;
-          };
-
-          imports = [
-            ./devShells
-          ];
-        };
       };
     };
 }

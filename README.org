@@ -1,18 +1,28 @@
-#+title: cobweb-curriculum-package
+#+title: cc-templates
 #+author: Tobias Hauser
 
-This is a template repository to create a new package for [[https://github.com/tobiashauser/cobweb-curriculum][cobweb-curriculum]].
+This flakes defines multiple templates for new cobweb-curriculum packages.
 
 ** Usage
 
-Create a new repository from this template by running:
+Show all defined templates:
 
 #+begin_src bash
-  gh repo create --template cobweb-curriculum-package PACKAGE
+  nix flake show "git+ssh://git@github.com/tobiashauser/cc-templates"
 #+end_src
 
-Navigate into your new repository and initialize it with:
+Install a template in the current directory with:
 
 #+begin_src bash
-  nix run .#repo-init
+  nix flake init -t "git+ssh://git@github.com/tobiashauser/cc-template"#NAME
 #+end_src
+
+** Templates
+
+This flake defines templates for various types of packages. Although naturally not every
+usecase can (and should) be covered. Most of the templates are designed in such a way that you
+can combine multiple.
+
+*** lib
+
+Defines a new cobweb-curriculum package that exports library functions.
