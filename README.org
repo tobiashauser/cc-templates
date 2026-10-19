@@ -3,7 +3,7 @@
 
 This is a template repository to create a new package for [[https://github.com/tobiashauser/cobweb-curriculum][cobweb-curriculum]].
 
-* Usage
+** Usage
 
 Create a new repository from this template by running:
 
