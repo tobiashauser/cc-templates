@@ -21,11 +21,9 @@
 
       # Additional imports.
       # ./lib
+      # ./options
       # ./templates
     ];
-
-    # Define extra options.
-    # options.<packageName> = { };
 
     config = {
       identifier = null; # TODO configure with a unique identifier.

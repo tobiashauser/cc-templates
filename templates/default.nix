@@ -20,6 +20,11 @@
       path = ./lib;
     };
 
+    options = {
+      descriptions = "add options for the module";
+      path  = ./options;
+    };
+
     packages = {
       description = "output packages";
       path = ./packages;
