@@ -6,8 +6,8 @@
     parts.url = "github:hercules-ci/flake-parts";
 
     # tag: 1.1.0
-    support = {
-      url = "git+ssh://git@github.com/tobiashauser/cc-support.git?shallow=1&rev=9f60551bce0a1fc3c719e8a1cc262e9276629a85";
+    cclib = {
+      url = "git+ssh://git@github.com/tobiashauser/cc-lib.git?ref=main&shallow=1&";
       inputs = {
         parts.follows = "parts";
         nixpkgs.follows = "nixpkgs";
@@ -17,7 +17,7 @@
 
   outputs = inputs@{ parts, ... }: parts.lib.mkFlake { inherit inputs; } {
     imports = [
-      inputs.support.flakeModules.default
+      inputs.cclib.flakeModules.default
 
       # Additional imports.
       # ./lib
