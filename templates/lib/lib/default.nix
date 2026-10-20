@@ -1,13 +1,19 @@
-# Define the library this package exposes.
+# Define the library this package exposes. The framework expects
+# 'flake.lib' to be defined only once, imported submodules are not
+# possible. Access nixpkgs's library by requiring `lib' in the inputs.
+args@{
+  ...
+}:
+
 {
   imports = [
-    # Add library modules.
-    ./square.nix
+    # ./square.nix
   ];
-
+  
   # Define functions inline or import them.
   flake.lib = {
     decr = x: x - 1;
-    incr = import ./incr.nix { };
+    incr = import ./incr.nix;
+    ls = import ./ls.nix args;
   };
 }
