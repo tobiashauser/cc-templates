@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     parts.url = "github:hercules-ci/flake-parts";
 
-    # tag: 1.1.1
+    # tag: 1.1.2
     cclib = {
       url = "git+ssh://git@github.com/tobiashauser/cc-lib.git?ref=main&shallow=1";
       inputs = {

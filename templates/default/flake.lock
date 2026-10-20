@@ -10,10 +10,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1792490313,
-        "narHash": "sha256-gnmBdYV9ydVeENzxugnfMUZiP9c6+gTfnK8ZTPBjNkc=",
+        "lastModified": 1792491009,
+        "narHash": "sha256-CIrhjTnXNBiji7xLeYn/Sls45hw6Cfc7epDM1GCBCX8=",
         "ref": "main",
-        "rev": "9f144b389e472723ddd66dc7c62ca3cf617ab7cf",
+        "rev": "cc2893bb514e085e742f4c6c7baa5dd9c860c8b4",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/tobiashauser/cc-lib.git"
