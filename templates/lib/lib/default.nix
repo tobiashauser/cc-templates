@@ -6,10 +6,6 @@ args@{
 }:
 
 {
-  imports = [
-    # ./square.nix
-  ];
-  
   # Define functions inline or import them.
   flake.lib = {
     decr = x: x - 1;
