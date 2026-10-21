@@ -62,7 +62,7 @@
                 # Modules that provide outputs parametrized over system.
                 # ./apps
                 # ./devShells
-                # ./options/perSystem.nix
+                # ./options/perSystem
                 # ./packages
               ];
 
