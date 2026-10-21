@@ -32,19 +32,29 @@
         ];
 
         config = {
-          identifier = null; # TODO configure with a unique identifier.
-          latexmk = {
-            # Configure latexmk.
-          };
-
           # Add the supported systems.
           systems = [
             "aarch64-darwin"
           ];
 
           perSystem =
-            { config, ... }:
+            { system, ... }:
+            let
+              pkgs = import inputs.nixpkgs {
+                inherit system;
+                overlays = inputs.cc-lib.lib.overlaysFrom [
+                  inputs.cc-lib.overlays
+                ];
+              };
+            in
             {
+              identifier = null; # TODO configure with a unique identifier.
+
+              # Inject the overlay into the module arguments.
+              _module.args = {
+                inherit pkgs;
+              };
+
               imports = [
                 # Modules that provide outputs parametrized over system.
                 # ./apps
