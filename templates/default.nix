@@ -21,8 +21,13 @@
     };
 
     options = {
-      descriptions = "add options for the module";
-      path  = ./options;
+      description = "add options for the module";
+      path = ./options;
+    };
+
+    overlays = {
+      description = "add explicit overlay definitions";
+      path = ./overlays;
     };
 
     packages = {

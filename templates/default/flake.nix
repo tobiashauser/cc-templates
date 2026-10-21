@@ -22,10 +22,12 @@
       {
         imports = [
           inputs.cc-lib.flakeModules.default
+          # inputs.parts.flakeModules.easyOverlay # generate overlays from packages
 
           # Additional imports.
           # ./lib
           # ./options
+          # ./overlays
           # ./templates
         ];
 
@@ -40,16 +42,24 @@
             "aarch64-darwin"
           ];
 
-          perSystem = {
-            imports = [
-              # Modules that provide outputs parametrized over system.
-              # ./apps
-              # ./devShells
-              # ./packages
-            ];
+          perSystem =
+            { config, ... }:
+            {
+              imports = [
+                # Modules that provide outputs parametrized over system.
+                # ./apps
+                # ./devShells
+                # ./packages
+              ];
 
-            # Additional package outputs.
-          };
+              # Globally import `easy-overlay' to generate overlays for
+              # the following packages.
+              # overlayAttrs = {
+              #   inherit (config.packages) my-package;
+              # };
+
+              # Additional package outputs.
+            };
         };
       }
     );
