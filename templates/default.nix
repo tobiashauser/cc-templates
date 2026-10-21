@@ -20,6 +20,16 @@
       path = ./lib;
     };
 
+    options = {
+      description = "add options for the module";
+      path = ./options;
+    };
+
+    overlays = {
+      description = "add explicit overlay definitions";
+      path = ./overlays;
+    };
+
     packages = {
       description = "output packages";
       path = ./packages;
