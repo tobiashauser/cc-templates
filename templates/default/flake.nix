@@ -18,7 +18,7 @@
   outputs =
     inputs@{ parts, ... }:
     parts.lib.mkFlake { inherit inputs; } (
-      { ... }:
+      { self, ... }:
       {
         imports = [
           inputs.cc-lib.flakeModules.default
@@ -43,7 +43,10 @@
               pkgs = import inputs.nixpkgs {
                 inherit system;
                 overlays = inputs.cc-lib.lib.overlaysFrom [
-                  inputs.cc-lib.overlays
+                  # Importing from `self` evaluates the options in the
+                  # context of this flake, using `inputs` preserves
+                  # the providing flake's options.
+                  self.overlays
                 ];
               };
             in
