@@ -18,7 +18,7 @@
   outputs =
     inputs@{ parts, ... }:
     parts.lib.mkFlake { inherit inputs; } (
-      { ... }:
+      { self, ... }:
       {
         imports = [
           inputs.cc-lib.flakeModules.default
@@ -32,23 +32,40 @@
         ];
 
         config = {
-          identifier = null; # TODO configure with a unique identifier.
-          latexmk = {
-            # Configure latexmk.
-          };
-
           # Add the supported systems.
           systems = [
             "aarch64-darwin"
           ];
 
           perSystem =
-            { config, ... }:
+            { system, ... }:
+            let
+              pkgs = import inputs.nixpkgs {
+                inherit system;
+                # Importing from `self` evaluates the options in the
+                # context of this flake, using `inputs` preserves
+                # the providing flake's options.
+                #
+                # overlays = inputs.cc-lib.lib.overlaysFrom [
+                #   self.overlays
+                # ];
+                #
+                # or simpler
+                overlays = builtins.attrValues self.overlays;
+              };
+            in
             {
+              identifier = null; # TODO configure with a unique identifier.
+
+              # Inject the overlay into the module arguments, this is
+              # only necessary if modules are used.
+              # _module.args.pkgs = pkgs;
+
               imports = [
                 # Modules that provide outputs parametrized over system.
                 # ./apps
                 # ./devShells
+                # ./options/perSystem
                 # ./packages
               ];
 
