@@ -42,21 +42,24 @@
             let
               pkgs = import inputs.nixpkgs {
                 inherit system;
-                overlays = inputs.cc-lib.lib.overlaysFrom [
-                  # Importing from `self` evaluates the options in the
-                  # context of this flake, using `inputs` preserves
-                  # the providing flake's options.
-                  self.overlays
-                ];
+                # Importing from `self` evaluates the options in the
+                # context of this flake, using `inputs` preserves
+                # the providing flake's options.
+                #
+                # overlays = inputs.cc-lib.lib.overlaysFrom [
+                #   self.overlays
+                # ];
+                #
+                # or simpler
+                overlays = builtins.attrValues self.overlays;
               };
             in
             {
               identifier = null; # TODO configure with a unique identifier.
 
-              # Inject the overlay into the module arguments.
-              _module.args = {
-                inherit pkgs;
-              };
+              # Inject the overlay into the module arguments, this is
+              # only necessary if modules are used.
+              # _module.args.pkgs = pkgs;
 
               imports = [
                 # Modules that provide outputs parametrized over system.
