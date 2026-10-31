@@ -61,7 +61,10 @@
     parts.lib.mkFlake { inherit inputs; } (
       { ... }:
       {
-        imports = [ module ];
+        imports = [
+          inputs.cc-lib.flakeModules.default
+          module
+        ];
         systems = [ "aarch64-darwin" ];
         flake.flakeModules.default = module;
       }
