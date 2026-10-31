@@ -9,8 +9,9 @@
   outputs =
     inputs@{ parts, ... }:
     parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        ./templates
-      ];
+      flake.templates.default = {
+        description = "cobweb-curriculum package";
+        path = ./templates/default;
+      };
     };
 }
