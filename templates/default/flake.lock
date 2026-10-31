@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "cclib": {
+    "cc-lib": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -10,10 +10,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1792491009,
-        "narHash": "sha256-CIrhjTnXNBiji7xLeYn/Sls45hw6Cfc7epDM1GCBCX8=",
+        "lastModified": 1792603532,
+        "narHash": "sha256-0PM/y192eRCL5Oq00Du8Smu7nBCtHwXqjIkH76UAtws=",
         "ref": "main",
-        "rev": "cc2893bb514e085e742f4c6c7baa5dd9c860c8b4",
+        "rev": "9bab931f91311c9286fe37e2e467806e86ebb994",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/tobiashauser/cc-lib.git"
@@ -76,9 +76,25 @@
     },
     "root": {
       "inputs": {
-        "cclib": "cclib",
+        "cc-lib": "cc-lib",
         "nixpkgs": "nixpkgs",
-        "parts": "parts"
+        "parts": "parts",
+        "tree": "tree"
+      }
+    },
+    "tree": {
+      "locked": {
+        "lastModified": 1788467110,
+        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
+        "owner": "denful",
+        "repo": "import-tree",
+        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
+        "type": "github"
+      },
+      "original": {
+        "owner": "denful",
+        "repo": "import-tree",
+        "type": "github"
       }
     }
   },
