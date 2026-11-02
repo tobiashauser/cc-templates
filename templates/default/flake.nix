@@ -22,7 +22,7 @@
       # Define the module in here so that it can be exported from the
       # flake as well.
       module =
-        { config, self, ... }:
+        top@{ config, self, ... }:
         {
           imports = [
             (tree [
@@ -43,7 +43,6 @@
             {
               _module.args = {
                 inherit pkgs;
-                top = { inherit config; };
               };
 
               imports = [
